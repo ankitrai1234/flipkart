@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Live OCR</title>
+</head>
+<body>
+    <h1>Live Camera Feed with OCR</h1>
+    <img src="{{ url_for('video_feed') }}" alt="Live Video Feed">
+    <h2>Extracted Text:</h2>
+    <pre id="ocr_result"></pre>
+    <script>
+        const ocrResult = document.getElementById('ocr_result');
+
+        // Function to fetch OCR results periodically
+        function fetchOCRResults() {
+            fetch('/ocr_result')
+                .then(response => response.json())
+                .then(data => {
+                    ocrResult.innerText = data.extracted_text; // Update the text
+                })
+                .catch(error => console.error('Error fetching OCR results:', error));
+        }
+
+        // Fetch OCR results every second
+        setInterval(fetchOCRResults, 1000);
+    </script>
+    <h2>press ctrl+c to exit the camera</h2>
+</body>
+</html>

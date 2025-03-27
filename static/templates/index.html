@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <h1>Welcome to the object detection and freshness check app</h1>
+  <div id="content"></div>
+  <img src="{{ url_for('static', filename='img/filp.jpg') }}" alt="Your Image Description">
+  <img src="{{ url_for('static', filename='img/mart.jpg') }}" alt="Your Image Description">
+  <img src="{{ url_for('static', filename='img/super.jpg') }}" alt="Your Image Description">
+  <div>
+    <a class="ocr"  href="">ocr</a>
+    <a class="freshness" href="Javascriptcode.html">freshness</a>
+    <a class="logo" href="index3.html">logo detection</a>
+  </div>
+  <div class="button-group">
+    <button onclick="Javascriptcode.html">Load Page 1</button>
+    <button onclick="open('Javascriptcode.html')">Load Page 2</button>
+    
+  </div>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
